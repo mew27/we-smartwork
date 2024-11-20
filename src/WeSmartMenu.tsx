@@ -16,6 +16,19 @@ const WeSmartMenu = () => {
     const isLarge     = useMediaQuery(theme.breakpoints.between('md', 'lg'));
     const isVeryLarge = useMediaQuery(theme.breakpoints.up('lg'));
 
+    return (<>
+            <AppBar position='static' elevation={0}>
+                <Toolbar>
+                    <Container sx={{display: 'flex', justifyContent: 'flex-start', alignContent: 'center'}}>
+                        <Typography variant='h4' component='h1' color="secondary" fontWeight="bold">WeSmartWork</Typography>
+                    </Container>
+                    <SearchButton></SearchButton>
+                    <IconButton><AccountCircleOutlinedIcon color="info"></AccountCircleOutlinedIcon></IconButton>
+                    <IconButton><MenuIcon color="info"></MenuIcon></IconButton>
+                </Toolbar>
+            </AppBar>
+    </>);
+
 
     if (isSmall) {
         return (

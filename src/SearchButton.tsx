@@ -1,12 +1,23 @@
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { Button } from '@mui/material';
+import { Button, IconButton, useMediaQuery, useTheme } from '@mui/material';
 
 const SearchButton = () => {
-    return (<>
-        <Button sx={{width: '10em', marginRight: '1.5em'}} endIcon={<SearchOutlinedIcon/>} color="info" variant="outlined">
-            Cerca...
-        </Button>
-    </>);
+    const theme = useTheme();
+    const isSmall = useMediaQuery(theme.breakpoints.down('sm'))
+
+    if (isSmall) {
+        return (<>
+                <IconButton>
+                    <SearchOutlinedIcon color="info"></SearchOutlinedIcon>
+                </IconButton>
+            </>);
+    } else {
+        return (<>
+                <Button sx={{width: '10em', marginRight: '1.5em'}} endIcon={<SearchOutlinedIcon/>} color="info" variant="outlined">
+                    Cerca...
+                </Button>
+            </>);
+    }
 };
 
 export default SearchButton;
