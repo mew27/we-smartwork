@@ -3,11 +3,13 @@ import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/s
 import "@fontsource/lato/300.css";
 import "@fontsource/lato/400.css";
 import "@fontsource/lato/700.css";
+
 import React from 'react';
 
 const MbdaTheme = ({children} : React.PropsWithChildren) => {
     let theme = createTheme({
         palette: {
+            mode: 'light',
             primary: {
                 main: '#ffffff'
             },

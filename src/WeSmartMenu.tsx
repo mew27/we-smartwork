@@ -5,8 +5,9 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
-import SearchBar from "./SearchBar"
+import SearchButton from "./SearchButton"
 
 const WeSmartMenu = () => {
     const theme       = useTheme();
@@ -20,12 +21,16 @@ const WeSmartMenu = () => {
         return (
             <>
                 <AppBar position='static' elevation={0}>
+                    {/* <Container sx={{display: 'flex', justifyContent: 'center', alignContent: 'center'}}>
+                    <Typography variant='h4' component='h1' color="secondary" fontWeight="bold" sx={{position : "absolute"}}>WeSmartWork</Typography>
+                    </Container>   */}
                     <Toolbar>
-                        <MenuIcon color="info"></MenuIcon>
-                        <Container sx={{display: 'flex', justifyContent: 'center', alignContent: 'center'}}>
+                        <Container sx={{display: 'flex', justifyContent: 'flex-start', alignContent: 'center'}}>
                             <Typography variant='h4' component='h1' color="secondary" fontWeight="bold">WeSmartWork</Typography>
                         </Container>
-                        <AccountCircleOutlinedIcon color="info"></AccountCircleOutlinedIcon>
+                        <IconButton><SearchOutlinedIcon color="info"></SearchOutlinedIcon></IconButton>
+                        <IconButton><AccountCircleOutlinedIcon color="info"></AccountCircleOutlinedIcon></IconButton>
+                        <IconButton><MenuIcon color="info"></MenuIcon></IconButton>
                     </Toolbar>
                 </AppBar>
             </>
@@ -35,10 +40,10 @@ const WeSmartMenu = () => {
                 <AppBar position='static' elevation={0}>
                     <Toolbar>
                         <MenuIcon color="info"></MenuIcon>
-                        <Container sx={{display: 'flex', justifyContent: 'center', alignContent: 'center'}}>
+                        <Container sx={{display: 'flex', justifyContent: 'left', alignContent: 'center'}}>
                             <Typography variant='h4' component='h1' color="secondary" fontWeight="bold">WeSmartWork</Typography>
                         </Container>
-                        <SearchBar></SearchBar>
+                        <SearchButton></SearchButton>
                         <AccountCircleOutlinedIcon color="info"></AccountCircleOutlinedIcon>
                     </Toolbar>
                 </AppBar>
