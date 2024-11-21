@@ -28,7 +28,7 @@ export function App() {
               </Paper>
             </Grid2>
             <Grid2 size={{xs : 12, sm : 6}}>
-                <SwPicker></SwPicker>
+                {/* <SwPicker></SwPicker> */}
             </Grid2>
             <Grid2 size={{xs : 12, sm : 12}}>
               <Container sx={{display: 'flex', justifyContent: 'center'}}>

@@ -32,7 +32,7 @@ const MbdaTheme = ({children} : React.PropsWithChildren) => {
         }
     });
 
-    theme = responsiveFontSizes(theme);
+    theme = responsiveFontSizes(theme, {factor : 1.8});
 
     return (
         <>
