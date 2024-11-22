@@ -8,7 +8,7 @@ import WeSmartMenu from './WeSmartMenu';
 
 // import swData from './assets/testdata'
 import MbdaTheme from './MbdaTheme';
-import SwVisualizer from './SwVisualizer';
+import InfoBox from './InfoBox';
 
 
 export function App() {
@@ -22,15 +22,17 @@ export function App() {
               <WeSmartMenu></WeSmartMenu>
             </Grid2>
             <Grid2 size={{xs : 12, sm : 6}}>
-              <SwVisualizer></SwVisualizer>
+              <InfoBox title="Grande traguardo per MBDA!">
+                Di recente il programma SPEAR ha raggiunto un traguardo importante con l’esito positivo di un lancio dimostrativo da un Typhoon della RAF presso il poligono di Vidsel in Svezia.
+              </InfoBox>
             </Grid2>
             <Grid2 size={{xs : 12, sm : 6}}>
                 {/* <SwPicker></SwPicker> */}
             </Grid2>
             <Grid2 size={{xs : 12, sm : 12}}>
-              <Container sx={{display: 'flex', justifyContent: 'center'}}>
+              {/* <Container sx={{display: 'flex', justifyContent: 'center'}}>
                 <Button variant='contained'>Esporta come .csv</Button>
-              </Container>
+              </Container> */}
             </Grid2>
           </Grid2>
         </DateLocale>

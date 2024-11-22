@@ -4,8 +4,6 @@ import mbda from './assets/MBDA-Logo.svg'
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
 import SearchButton from "./SearchButton"
 import AccountButton from "./AccountButton";
@@ -15,7 +13,6 @@ import account_1 from "./assets/account_icons/Account_1.jpg"
 const WeSmartMenu = () => {
     const theme       = useTheme();
     const isSmall     = useMediaQuery(theme.breakpoints.between('xs','sm'));
-    const isMedium    = useMediaQuery(theme.breakpoints.between('sm', 'md'));
     const isLarge     = useMediaQuery(theme.breakpoints.between('md', 'lg'));
     const isVeryLarge = useMediaQuery(theme.breakpoints.up('lg'));
 
