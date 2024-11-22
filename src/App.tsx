@@ -30,9 +30,9 @@ export function App() {
                 {/* <SwPicker></SwPicker> */}
             </Grid2>
             <Grid2 size={{xs : 12, sm : 12}}>
-              <Container sx={{display: 'flex', justifyContent: 'center'}}>
+              {/* <Container sx={{display: 'flex', justifyContent: 'center'}}>
                 <Button variant='contained'>Esporta come .csv</Button>
-              </Container>
+              </Container> */}
             </Grid2>
           </Grid2>
         </DateLocale>
