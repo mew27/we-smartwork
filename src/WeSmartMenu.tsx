@@ -1,4 +1,4 @@
-import { AppBar, IconButton, Toolbar, Button, Typography, useTheme, Container, SvgIcon, Box } from "@mui/material";
+import { AppBar, IconButton, Toolbar, Typography, useTheme, Box } from "@mui/material";
 
 import mbda from './assets/MBDA-Logo.svg'
 import useMediaQuery from '@mui/material/useMediaQuery';
