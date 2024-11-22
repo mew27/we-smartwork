@@ -10,6 +10,8 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import SearchButton from "./SearchButton"
 import AccountButton from "./AccountButton";
 
+import account_1 from "./assets/account_icons/Account_1.jpg"
+
 const WeSmartMenu = () => {
     const theme       = useTheme();
     const isSmall     = useMediaQuery(theme.breakpoints.between('xs','sm'));
@@ -26,7 +28,7 @@ const WeSmartMenu = () => {
                         <Typography variant={isSmall ? 'h6' : "h4"} component='h1' color="secondary" fontWeight="bold">WeSmartWork</Typography>
                     </Box>
                     <SearchButton size={isSmall ? "small" : "large"}></SearchButton>
-                    <AccountButton size={(isLarge || isVeryLarge) ? "large" : "small"}></AccountButton>
+                    <AccountButton src={account_1} size={(isLarge || isVeryLarge) ? "large" : "small"}></AccountButton>
                     {!isSmall ? (<IconButton><MenuIcon color="info"></MenuIcon></IconButton>) : (<></>)}
                 </Toolbar>
             </AppBar>
