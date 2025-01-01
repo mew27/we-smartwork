@@ -1,4 +1,4 @@
-import { AppBar, IconButton, Toolbar, Typography, useTheme, Box } from "@mui/material";
+import { AppBar, IconButton, Toolbar, Typography, useTheme, Box, Stack } from "@mui/material";
 
 import mbda from './assets/MBDA-Logo.svg'
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -10,6 +10,8 @@ import AccountButton from "./AccountButton";
 
 import account_1 from "./assets/account_icons/Account_1.jpg"
 
+import CandaLogo from "./CandaLogo";
+
 const WeSmartMenu = () => {
     const theme       = useTheme();
     const isSmall     = useMediaQuery(theme.breakpoints.between('xs','sm'));
@@ -20,13 +22,14 @@ const WeSmartMenu = () => {
             <AppBar position='static' elevation={0}>
                 <Toolbar sx={{display: "flex", justifyContent: "center"}}>
                     {isSmall ? (<IconButton><MenuIcon color="info"></MenuIcon></IconButton>) : (<></>)}
-                    {(isVeryLarge) ? <img width="250px" src={mbda} />: <></>}
                     <Box sx={{flex: 1, display: "flex", justifyContent: "center", alignItems: "center"}}>
                         <Typography variant={isSmall ? 'h6' : "h4"} component='h1' color="secondary" fontWeight="bold">WeSmartWork</Typography>
                     </Box>
-                    <SearchButton size={isSmall ? "small" : "large"}></SearchButton>
-                    <AccountButton src={account_1} size={(isLarge || isVeryLarge) ? "large" : "small"}></AccountButton>
-                    {!isSmall ? (<IconButton><MenuIcon color="info"></MenuIcon></IconButton>) : (<></>)}
+                    <Stack direction="row" spacing={2} alignItems="center">
+                        <SearchButton size={isSmall ? "small" : "large"}></SearchButton>
+                        <AccountButton src={account_1} size={(isLarge || isVeryLarge) ? "large" : "small"}></AccountButton>
+                        {!isSmall ? (<IconButton><MenuIcon color="info"></MenuIcon></IconButton>) : (<></>)}
+                    </Stack>
                 </Toolbar>
             </AppBar>
     </>);

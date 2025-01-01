@@ -11,28 +11,28 @@ const MbdaTheme = ({children} : React.PropsWithChildren) => {
         palette: {
             mode: 'light',
             primary: {
-                main: '#ffffff'
+                main: 'rgb(255, 255, 255)'
             },
             secondary: {
-                main: '#e4002b'
+                main: 'rgb(228, 0, 43)'
             },
             // info: {
             //     main: '#303030'
             // }
             info : {
-                main : '#001489'
+                main : 'rgb(0, 20, 137)'
             }
         },
         typography: {
             fontFamily: 'Lato',
-            fontSize: 18
+            fontSize: 16
         },
         shape: {
             borderRadius : 0
         }
     });
 
-    theme = responsiveFontSizes(theme, {factor : 1.8});
+    theme = responsiveFontSizes(theme, {factor : 2});
 
     return (
         <>

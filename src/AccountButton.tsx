@@ -9,12 +9,12 @@ interface AccountButtonProps extends StyledButtonProps {
 const AccountButton = ({size, src} : AccountButtonProps) => {
     if (size === "small") {
         return (<>
-                <Avatar src={src} sx={{width : 30, height : 30}}></Avatar>
+                <IconButton><Avatar src={src} sx={{width : 30, height : 30}}></Avatar></IconButton>
                     {/* <AccountCircleOutlinedIcon color="info"></AccountCircleOutlinedIcon> */}
             </>);
     } else {
         return (<>
-                <Button sx={{minWidth: '15em'}} color="info" variant="text">
+                <Button color="info" variant="text">
                     <Typography noWrap variant="button" sx={{textDecoration: "underline"}}>
                         Michele Iuliano
                     </Typography>
