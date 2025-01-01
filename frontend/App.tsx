@@ -22,7 +22,7 @@ export function App() {
           <Stack spacing={6} alignItems="center">
             <WeSmartMenu></WeSmartMenu>
             <InfoBox sx={{width: 1}} title="Grande traguardo per MBDA!">
-                Di recente il programma SPEAR ha raggiunto un traguardo importante con l'esito positivo di un lancio dimostrativo da un Typhoon della RAF presso il poligono di Vidsel in Svezia.
+                Di recente il frogramma ha raggiunto un traguardo importante con l'esito positivo di un lancio dimostrativo da un Typhoon della RAF presso il poligono di Vidsel in Svezia.
             </InfoBox>
             <SwVisualizer></SwVisualizer>
             <SwPicker></SwPicker>
