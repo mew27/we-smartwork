@@ -1,6 +1,5 @@
 import { AppBar, IconButton, Toolbar, Typography, useTheme, Box, Stack } from "@mui/material";
 
-import mbda from './assets/MBDA-Logo.svg'
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import MenuIcon from '@mui/icons-material/Menu';
@@ -12,7 +11,11 @@ import account_1 from "./assets/account_icons/Account_1.jpg"
 
 import CandaLogo from "./CandaLogo";
 
-const WeSmartMenu = () => {
+interface WeSmartMenuProps {
+    onClickSearch : () => void
+}
+
+const WeSmartMenu = ({onClickSearch} : WeSmartMenuProps) => {
     const theme       = useTheme();
     const isSmall     = useMediaQuery(theme.breakpoints.between('xs','sm'));
     const isLarge     = useMediaQuery(theme.breakpoints.between('md', 'lg'));
@@ -26,7 +29,7 @@ const WeSmartMenu = () => {
                         <Typography variant={isSmall ? 'h6' : "h4"} component='h1' color="secondary" fontWeight="bold">WeSmartWork</Typography>
                     </Box>
                     <Stack direction="row" spacing={2} alignItems="center">
-                        <SearchButton size={isSmall ? "small" : "large"}></SearchButton>
+                        <SearchButton onClick={onClickSearch} size={isSmall ? "small" : "large"}></SearchButton>
                         <AccountButton src={account_1} size={(isLarge || isVeryLarge) ? "large" : "small"}></AccountButton>
                         {!isSmall ? (<IconButton><MenuIcon color="info"></MenuIcon></IconButton>) : (<></>)}
                     </Stack>
