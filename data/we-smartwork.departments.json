@@ -1,0 +1,110 @@
+[{
+  "_id": {
+    "$oid": "677d6e3aa7e660e38c67f1ba"
+  },
+  "name": "CandA",
+  "employees": [
+    {
+      "name": "Paolo Terzolo",
+      "role": "employee",
+      "smart_working": {
+        "current": [
+          "7-1-2024",
+          "9-1-2024",
+          "13-1-2024",
+          "17-1-2024",
+          "21-1-2024",
+          "24-1-2024",
+          "27-1-2024",
+          "30-1-2024"
+        ]
+      },
+      "_id": {
+        "$oid": "677ee8b92cc836a188ee2463"
+      }
+    },
+    {
+      "name": "Gavino Lace",
+      "role": "employee",
+      "smart_working": {
+        "current": [
+          "8-1-2024",
+          "10-1-2024",
+          "27-1-2024",
+          "39-1-2024"
+        ]
+      },
+      "_id": {
+        "$oid": "677ee89d2cc836a188ee245b"
+      }
+    },
+    {
+      "name": "Marco Cappa",
+      "role": "employee",
+      "smart_working": {
+        "current": [
+          "7-1-2024",
+          "9-1-2024",
+          "14-1-2024",
+          "16-1-2024",
+          "21-1-2024",
+          "23-1-2024",
+          "28-1-2024",
+          "30-1-2024"
+        ]
+      },
+      "_id": {
+        "$oid": "677ee89d2cc836a188ee245c"
+      }
+    },
+    {
+      "name": "Nicola De Vita",
+      "role": "employee",
+      "smart_working": {
+        "current": [
+          "8-1-2024",
+          "10-1-2024",
+          "15-1-2024",
+          "17-1-2024",
+          "20-1-2024",
+          "22-1-2024",
+          "28-1-2024",
+          "31-1-2024"
+        ]
+      },
+      "_id": {
+        "$oid": "677ee89d2cc836a188ee245d"
+      }
+    },
+    {
+      "name": "Domenico Borzacchiello",
+      "role": "manager",
+      "smart_working": {
+        "current": []
+      },
+      "_id": {
+        "$oid": "677ee89d2cc836a188ee245e"
+      }
+    },
+    {
+      "name": "Alessandro Sorrentino",
+      "role": "employee",
+      "smart_working": {
+        "current": []
+      },
+      "_id": {
+        "$oid": "677ee89d2cc836a188ee245f"
+      }
+    },
+    {
+      "name": "Luigi Ragozzini",
+      "role": "employee",
+      "smart_working": {
+        "current": []
+      },
+      "_id": {
+        "$oid": "677ee89d2cc836a188ee2460"
+      }
+    }
+  ]
+}]

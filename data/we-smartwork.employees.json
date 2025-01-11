@@ -1,0 +1,93 @@
+[{
+  "_id": {
+    "$oid": "677ee89d2cc836a188ee245b"
+  },
+  "name": "Gavino Lace",
+  "role": "employee",
+  "department": {
+    "name": "CandA",
+    "_id": {
+      "$oid": "677d6e3aa7e660e38c67f1ba"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677ee89d2cc836a188ee245c"
+  },
+  "name": "Marco Cappa",
+  "role": "employee",
+  "department": {
+    "name": "CandA",
+    "_id": {
+      "$oid": "677d6e3aa7e660e38c67f1ba"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "677ee89d2cc836a188ee245d"
+  },
+  "name": "Nicola De Vita",
+  "role": "employee",
+  "department": {
+    "_id": {
+      "$oid": "677d6e3aa7e660e38c67f1ba"
+    },
+    "name": "CandA"
+  }
+},
+{
+  "_id": {
+    "$oid": "677ee89d2cc836a188ee245e"
+  },
+  "name": "Domenico Borzacchiello",
+  "role": "manager",
+  "department": {
+    "_id": {
+      "$oid": "677d6e3aa7e660e38c67f1ba"
+    },
+    "name": "CandA"
+  }
+},
+{
+  "_id": {
+    "$oid": "677ee89d2cc836a188ee245f"
+  },
+  "name": "Alessandro Sorrentino",
+  "role": "employee",
+  "department": {
+    "_id": {
+      "$oid": "677d6e3aa7e660e38c67f1ba"
+    },
+    "name": "CandA"
+  }
+},
+{
+  "_id": {
+    "$oid": "677ee89d2cc836a188ee2460"
+  },
+  "name": "Luigi Ragozzini",
+  "role": "employee",
+  "department": {
+    "_id": {
+      "$oid": "677d6e3aa7e660e38c67f1ba"
+    },
+    "name": "CandA"
+  }
+},
+{
+  "_id": {
+    "$oid": "677ee8b92cc836a188ee2463"
+  },
+  "name": "Paolo Terzolo",
+  "role": "employee",
+  "email": "terzolopaolo453@gmail.com",
+  "password": "Password1",
+  "department": {
+    "_id": {
+      "$oid": "677d6e3aa7e660e38c67f1ba"
+    },
+    "name": "CandA"
+  }
+}]
