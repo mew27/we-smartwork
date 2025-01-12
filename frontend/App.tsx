@@ -16,6 +16,7 @@ import { useState } from 'react';
 import Search from './Search';
 
 import { Employee } from '../interface/user'
+import { UserContext } from "./UserContext";
 
 export function App() {
 
@@ -26,16 +27,17 @@ export function App() {
     <>
       <MbdaTheme>
         <DateLocale>
-          <Search open={searching} onClose={() => {setSearching(false)}}></Search>
-          <Stack spacing={6} alignItems="center">
-            <WeSmartMenu onClickSearch={() => {setSearching(true)}}></WeSmartMenu>
-            <InfoBox sx={{width: 1}} title="Grande traguardo per MBDA!">
-                Di recente il programma SPEAR ha raggiunto un traguardo importante con l'esito positivo di un lancio dimostrativo da un Typhoon della RAF presso il poligono di Vidsel in Svezia.
-            </InfoBox>
-            <SwVisualizer></SwVisualizer>
-            <SwPicker></SwPicker>
-            <CandaLogo></CandaLogo>
-          </Stack>
+          <UserContext.Provider value={user}>
+            <Search open={searching} onClose={() => {setSearching(false)}}></Search>
+            <Stack spacing={6} alignItems="center">
+              <WeSmartMenu onClickSearch={() => {setSearching(true)}}></WeSmartMenu>
+              <InfoBox sx={{width: 1}} title="Grande traguardo per MBDA!">
+                  Di recente il programma SPEAR ha raggiunto un traguardo importante con l'esito positivo di un lancio dimostrativo da un Typhoon della RAF presso il poligono di Vidsel in Svezia.
+              </InfoBox>
+              <SwVisualizer></SwVisualizer>
+              <SwPicker></SwPicker>
+            </Stack>
+          </UserContext.Provider>
         </DateLocale>
       </MbdaTheme>
     </>
