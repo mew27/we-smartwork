@@ -7,7 +7,8 @@ import dayjs from 'dayjs';
 
 dayjs.extend(updateLocale)
 dayjs.updateLocale('it', {
-    months: 'Gennaio_Febbraio_Marzo_Aprile_Maggio_Giugno_Luglio_Agosto_Settembre_Ottobre_Novembre_Dicembre'.split('_')
+    months: 'Gennaio_Febbraio_Marzo_Aprile_Maggio_Giugno_Luglio_Agosto_Settembre_Ottobre_Novembre_Dicembre'.split('_'),
+    weekdays:"Domenica_Lunedì_Martedì_Mercoledì_Giovedì_Venerdì_Sabato".split("_")
 })
 
 function DateLocale ({children} : React.PropsWithChildren) {

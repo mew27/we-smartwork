@@ -1,6 +1,7 @@
 import { Dialog, DialogContent, DialogContentText, DialogTitle, Divider, Input, List, ListItem, ListItemText, ListSubheader, Stack, Table, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import React from "react";
 
 interface Search {
     open : boolean,
@@ -54,13 +55,13 @@ const Search = ({open, onClose} : Search) => {
         <DialogContent>
             <List>
                 {recentSearch.length && !searched ? <ListSubheader>Recenti</ListSubheader> : <></>}
-                {recentSearch.map((v) => (<>
+                {recentSearch.map((v, i) => (<React.Fragment key={i}>
                     <ListItem>
                     <ListItemText>
                         <a href="#result" color="primary"> {v}</a>
                     </ListItemText>
                     </ListItem>
-                </>))}
+                </React.Fragment>))}
 
             </List>
         </DialogContent>

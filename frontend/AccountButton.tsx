@@ -2,11 +2,16 @@ import { Avatar, Button, IconButton, Typography } from '@mui/material';
 import StyledButtonProps from './StyledButtonProps';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
+import { UserContext } from './AppContext';
+import { useContext } from 'react';
+
 interface AccountButtonProps extends StyledButtonProps {
-    src : string
+    src : string,
+    username : string
 }
 
-const AccountButton = ({size, src} : AccountButtonProps) => {
+const AccountButton = ({size, src, username} : AccountButtonProps) => {
+
     if (size === "small") {
         return (<>
                 <IconButton><Avatar src={src} sx={{width : 30, height : 30}}></Avatar></IconButton>
@@ -16,7 +21,7 @@ const AccountButton = ({size, src} : AccountButtonProps) => {
         return (<>
                 <Button color="info" variant="text">
                     <Typography noWrap variant="button" sx={{textDecoration: "underline"}}>
-                        Michele Iuliano
+                        {username}
                     </Typography>
                 </Button>
             </>);
