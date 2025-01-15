@@ -15,7 +15,7 @@ import CandaLogo from './CandaLogo'
 import { useEffect, useRef, useState } from 'react';
 import Search from './Search';
 
-import { Employee } from '../interface/db_schema'
+import { Department, Employee } from '../interface/db_schema'
 import { UserContext } from "./AppContext";
 import Login from "./Login";
 import dayjs from "dayjs";
@@ -61,7 +61,7 @@ export function App() {
                   </Typography>
                 </InfoBox> */}
                 <SwVisualizer user={user} department={department}></SwVisualizer>
-                <SwPicker user={user} department={department}r></SwPicker>
+                <SwPicker user={user} department={department}></SwPicker>
               </>)
               :
                 <Login 
