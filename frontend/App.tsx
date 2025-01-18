@@ -43,7 +43,6 @@ export function App() {
     })
   }, [user])
 
-
   return (
     <>
       <MbdaTheme>

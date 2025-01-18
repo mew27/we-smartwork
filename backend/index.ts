@@ -19,6 +19,8 @@ app.use(bodyParser.json())
 
 app.post("/v1/login", async (req, res) => {
 
+    console.log(`[${dayjs().format("HH:mm::ss DD/MM/YYYY")}] Reiceived login request from ${req.ip}`)
+
     const jsonResponse = {status: "unauthorized", userData : {}}
 
     if (req.body == null) {
@@ -36,10 +38,10 @@ app.post("/v1/login", async (req, res) => {
         res.json(jsonResponse)
         return
     } else if (resultArray.length > 1) {
-        console.log("Something went wrong in login")
         res.json(jsonResponse)
         return
     } else {
+        console.log(`[${dayjs().format("HH:mm::ss DD/MM/YYYY")}] Authorized user ${username}`)
         const { email, password, ...userData } = resultArray[0]
         jsonResponse.status   = "authorized"
         jsonResponse.userData = userData
