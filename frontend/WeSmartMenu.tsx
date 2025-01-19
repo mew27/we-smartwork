@@ -7,8 +7,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchButton from "./SearchButton"
 import AccountButton from "./AccountButton";
 
-import account_1 from "./assets/account_icons/Account_1.jpg"
-
 import CandaLogo from "./CandaLogo";
 import { Employee } from "../interface/db_schema";
 import { UserContext } from "./AppContext";
@@ -40,7 +38,7 @@ const WeSmartMenu = ({user, onClickSearch} : WeSmartMenuProps) => {
                         (
                         <Stack direction="row" spacing={2} alignItems="center">
                             <SearchButton onClick={onClickSearch} size={isSmall ? "small" : "large"}></SearchButton>
-                            <AccountButton username={user?.name} src={account_1} size={(isLarge || isVeryLarge) ? "large" : "small"}></AccountButton>
+                            <AccountButton username={user?.name} src={""} size={(isLarge || isVeryLarge) ? "large" : "small"}></AccountButton>
                             {/* {!isSmall ? (<IconButton><MenuIcon color="info"></MenuIcon></IconButton>) : (<></>)} */}
                         </Stack>
                         )

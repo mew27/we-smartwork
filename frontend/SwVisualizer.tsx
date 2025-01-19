@@ -22,7 +22,7 @@ const SwAttendanceCounter = ({user, department} : SwAttendance) => {
     const today = dayjs().locale('it')
 
     const totalDepEmployees = department?.employees?.length ?? 0
-    const totalDepSmart     = department?.employees?.reduce((t, e) => e.smart_working.current.includes(today.format("D-M-YYYY")) ? t : t + 1, 0)
+    const totalDepOffice     = department?.employees?.reduce((t, e) => e.smart_working.current.includes(today.format("D-M-YYYY")) ? t : t + 1, 0)
 
 
     if (today.format('dddd') == 'Domenica' || today.format('dddd') == 'Sabato') {
@@ -33,7 +33,7 @@ const SwAttendanceCounter = ({user, department} : SwAttendance) => {
         </Stack>)
     } else {
         return (<Stack alignItems="center">
-            <Typography variant="h3">{totalDepSmart}</Typography>
+            <Typography variant="h3">{totalDepOffice}</Typography>
             <Typography color="grey" style={{ fontStyle: "italic" }} fontSize="0.8em">/ {totalDepEmployees}</Typography>
             <Typography variant="body2">presenti in ufficio</Typography>
         </Stack>)
@@ -85,6 +85,13 @@ interface SwVisualizerProps {
     department : Department | null
 }
 
+function getAbbrvName(user : Employee) {
+    let name    = user.name.split(" ")[0]
+    let surname = user.name.split(" ").slice(1).join(" ")
+    
+    return name[0] + '. ' + surname
+}
+
 const SwVisualizer = ({user, department} : SwVisualizerProps) => {
 
     return (<>
@@ -94,7 +101,7 @@ const SwVisualizer = ({user, department} : SwVisualizerProps) => {
                     <Typography sx={{ display: "flex", justifyContent: "center"}} component="h1" variant="h5" color="secondary">{user?.department?.name}</Typography>
                     <Box sx={{ display: "flex", justifyContent: "center" }}><Divider sx={{ marginTop: '1em', marginBottom: '1em', width: "85%" }}></Divider></Box>
                     <Stack direction="row" spacing={-1} sx={{ display: "flex", justifyContent: "flex-end" }}>
-                        <Button color="info"><Typography variant="caption">{`+1 altro`}</Typography></Button>
+                        <Button color="info"><Typography variant="caption">{department?.employees?.map((u, i) => getAbbrvName(u) + ', ')}{`+1 altro`}</Typography></Button>
                     </Stack>
                     <Stack direction="row" sx={{ display: "flex", alignItems: "center", justifyContent: "space-evenly" }}>
                         <SwText user={user}/>

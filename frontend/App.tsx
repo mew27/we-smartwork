@@ -31,6 +31,18 @@ async function login(userName : string, password : string) {
     }).then((res) => res.json())
 }
 
+async function addSW(user : Employee) {
+  return fetch(`/v1/users/${user._id}`, {
+    headers: {"Content-Type" : "application/json"}, 
+    method: "POST", 
+    body: JSON.stringify(user)
+    }).then((res) => res.json())
+}
+
+async function getUserData(userId : string) {
+  return fetch(`/v1/users/${userId}`).then((res) => res.json())
+}
+
 export function App() {
   const [searching, setSearching] = useState(false)
   const [user, setUser] = useState<Employee | null>(null)
@@ -60,7 +72,18 @@ export function App() {
                   </Typography>
                 </InfoBox> */}
                 <SwVisualizer user={user} department={department}></SwVisualizer>
-                <SwPicker user={user} department={department}></SwPicker>
+                <SwPicker 
+                  addSW={(sw_days) => {
+                    user.smart_working.current = sw_days.map((v) => v.format("D-M-YYYY"))
+                    addSW(user).then((res) => {
+                      if (res?.status == "success") {
+                        getUserData(user._id).then((res)=>{setUser(res)})
+                      }
+                    })
+                  }}
+                  removeSW={() => {}}
+                  user={user}
+                  department={department}></SwPicker>
               </>)
               :
                 <Login 

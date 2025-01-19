@@ -51,6 +51,8 @@ app.post("/v1/login", async (req, res) => {
 })
 
 app.post("/v1/users/:user_id", async (req, res) => {
+    var validSwDays : string[] = []
+
     try{
         var id_obj = new ObjectId(req.params.user_id)
     } catch (error) {
@@ -73,8 +75,8 @@ app.post("/v1/users/:user_id", async (req, res) => {
         const user = users[0]
         const updatedUser : any = {}
 
-        if (req.body.password != null && req.body.oldPassword === user.password) {
-            updatedUser.password = req.body.newPassword
+        if (req.body.password != null && req.body?.oldPassword === user.password) {
+            updatedUser['$set'] = {password : req.body.newPassword}
         }
 
         if (
@@ -82,29 +84,49 @@ app.post("/v1/users/:user_id", async (req, res) => {
             req.body.smart_working.current != null        &&
             Array.isArray(req.body.smart_working.current)
         ) {
-            
-            updatedUser.smart_working.current = []
-
             for (let sw_day of req.body.smart_working.current) {
                 let sw_day_str = sw_day.toString()
 
                 if(dayjs(sw_day_str).isValid()){
-                    updatedUser.smart_working.current.push(sw_day_str)
+                    validSwDays.push(sw_day_str)
                 }
             }
+
+            updatedUser['$push'] = {'smart_working.current' : {'$each' : validSwDays}}
         }
 
         if (Object.keys(updatedUser).length != 0) {
+            console.log(updatedUser)
             const result = await client.db(dbName).collection("employees").updateOne({_id : id_obj}, updatedUser)
             
-            if(result.modifiedCount != 0) {
+            if(result.modifiedCount == 0) {
                 res.json({status: "failed"})
                 return
             }
 
-            res.json({status: "success", updated: {smart_working : updatedUser.smart_working}})
+            res.json({status: "success", updated: {smart_working : {current: validSwDays}}})
             return
         }
+    }
+})
+
+app.get("/v1/users/:user_id", async (req, res) => {
+    try{
+        var id_obj = new ObjectId(req.params.user_id)
+    } catch (error) {
+        //console.log(error)
+        res.json({})
+        return
+    }
+
+    const cursor = client.db(dbName).collection("employees").find({_id : id_obj})
+    const users = await cursor.toArray()
+
+    if (users.length != 1)
+        res.json({})
+    else {
+        const { email, password, ...userData } = users[0]
+        res.json(userData)
     }
 })
 
