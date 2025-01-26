@@ -1,5 +1,5 @@
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { Button, IconButton, Typography } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
 import StyledButtonProps from './StyledButtonProps';
 
 const SearchButton = ({size, onClick} : StyledButtonProps) => {

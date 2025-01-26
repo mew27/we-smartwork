@@ -1,6 +1,6 @@
-import { Box, Button, Container, Divider, Paper, SxProps, Typography, css, useTheme } from "@mui/material";
+import { Box, Button, Divider, Paper, Typography, css, useTheme } from "@mui/material";
 import { red } from '@mui/material/colors'
-import { DateCalendar, DatePicker, DatePickerToolbarProps, PickersActionBar, PickersActionBarProps, PickersDay, PickersDayProps, StaticDatePicker } from "@mui/x-date-pickers";
+import { DatePickerToolbarProps, PickersActionBarProps, PickersDayProps, StaticDatePicker } from "@mui/x-date-pickers";
 
 import dayjs, { Dayjs } from "dayjs";
 import customParseFormat from 'dayjs/plugin/customParseFormat'
@@ -25,7 +25,7 @@ interface SwtoolbarProps extends DatePickerToolbarProps<Dayjs> {
     animate : boolean,
 }
 
-const SwToolbar = ({value, toolbarFormat, className, user, remainingDays, animate, ...props} : SwtoolbarProps) => {
+const SwToolbar = ({className, remainingDays} : SwtoolbarProps) => {
     return (<Box className={className} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
             <Typography>{remainingDays} / 8 SW disponibili</Typography>
         </Box>)
@@ -38,7 +38,7 @@ interface SwDayProps extends PickersDayProps<Dayjs> {
     onDayClicked : (day : Dayjs) => void
 }
 
-const SwDay = ({user, department, selectedDays, className, day, outsideCurrentMonth, disabled, selected, onDayClicked, ...props} : SwDayProps) => {
+const SwDay = ({user, department, selectedDays, className, day, outsideCurrentMonth, selected, onDayClicked} : SwDayProps) => {
     const isSmartWorking = user?.smart_working.current.includes(day.locale("it").format("D-M-YYYY"))
     const totalSmartWorking = department?.employees?.reduce((t, e) => e.smart_working.current.includes(day.format("D-M-YYYY")) ? t + 1 : t, 0)?? 0
     const isFull = totalSmartWorking > ((department?.employees?.length?? 0) / 2)
@@ -143,7 +143,7 @@ interface SwActionBarProps extends PickersActionBarProps {
     addAllSelected: () => void,
 }
 
-const SwActionBar = ({user, department, className, selectedDays, removeAllSelected, addAllSelected, ...props} : SwActionBarProps) => {
+const SwActionBar = ({className, selectedDays, removeAllSelected, addAllSelected} : SwActionBarProps) => {
 
     return (<><Box className={className} display="flex" justifyContent="space-between" paddingBottom="1em" paddingRight="1em" paddingLeft="1em">
                 <Button onClick={removeAllSelected} variant="contained" color="secondary" sx={{fontSize: "0.8em", visibility: selectedDays.length != 0 ? "visible" : "hidden"}}>Rimuovi tutti</Button>
@@ -175,7 +175,7 @@ function calcRemainingDays(selectedDays : Dayjs[], sw_days : string[], month : n
     return remainingDays
 }
 
-function SwPicker({user, department, addSW, removeSW} : SwPickerProps) {
+function SwPicker({user, department, addSW} : SwPickerProps) {
     const [selectedDays, setSelectedDays] = useState<Dayjs[]>([])
     const [month, setMonth] = useState<number>(dayjs().month())
 
@@ -236,6 +236,9 @@ function SwPicker({user, department, addSW, removeSW} : SwPickerProps) {
                         },
                     }}
                     ></StaticDatePicker>
+                    <Box display="flex" justifyContent="center" padding="1em">
+                        <Button variant="contained" color="secondary">Esporta CSV</Button>
+                    </Box>
             </Paper>
         </>
     )

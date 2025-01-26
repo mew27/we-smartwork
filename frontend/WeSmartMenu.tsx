@@ -1,16 +1,13 @@
-import { AppBar, IconButton, Toolbar, Typography, useTheme, Box, Stack } from "@mui/material";
+import { AppBar, Toolbar, Typography, useTheme, Box, Stack } from "@mui/material";
 
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-import MenuIcon from '@mui/icons-material/Menu';
 
 import SearchButton from "./SearchButton"
 import AccountButton from "./AccountButton";
 
 import CandaLogo from "./CandaLogo";
 import { Employee } from "../interface/db_schema";
-import { UserContext } from "./AppContext";
-import { useContext } from "react";
 
 interface WeSmartMenuProps {
     user : Employee | null,

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "conc \"tsc -p backend --watch --preserveWatchOutput\" \"nodemon --delay 1 -w backend -e ts backend/transpiled/index.js\"",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && tsc -p backend",
     "lint": "eslint .",
     "preview": "vite preview"
   },

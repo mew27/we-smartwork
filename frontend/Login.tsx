@@ -1,8 +1,7 @@
 import { Button, Stack, TextField, Typography } from "@mui/material"
 import InfoBox from "./InfoBox"
-import { useContext, useRef, useState } from "react"
+import {useRef } from "react"
 
-import { UserContext } from "./AppContext"
 import { Employee } from "../interface/db_schema"
 
 interface LoginProps {
@@ -12,7 +11,7 @@ interface LoginProps {
     failedLogin : boolean
 }
 
-const Login = ({user, setUser, doLogin, failedLogin} : LoginProps) => {
+const Login = ({ doLogin, failedLogin} : LoginProps) => {
     const usernameRef = useRef<HTMLInputElement | null>(null)
     const passwordRef = useRef<HTMLInputElement | null>(null)
 

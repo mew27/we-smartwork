@@ -177,4 +177,5 @@ app.get("/v1/departments/:department_id", async (req, res) => {
     }
 })
 
+ViteExpress.config({mode: "production"})
 ViteExpress.listen(app, 3000, () => console.log("Server is listening..."));

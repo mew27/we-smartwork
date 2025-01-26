@@ -1,8 +1,6 @@
-import { Paper, Stack, Typography, Avatar, Button, Divider, Box, Container, IconButton } from "@mui/material";
+import { Paper, Stack, Typography, Button, Divider, Box, Container } from "@mui/material";
 import 'dayjs/locale/it'
 import dayjs from "dayjs";
-import { useContext, useEffect, useState } from "react";
-import { UserContext } from "./AppContext";
 import { Department, Employee } from "../interface/db_schema";
 
 // interface SWVisualizerType {
@@ -12,13 +10,12 @@ import { Department, Employee } from "../interface/db_schema";
 //     totalUsers : number
 // }
 
-const apiUrl = "/v1/departments/"
 
 interface SwAttendance {
     user : Employee | null,
     department : Department | null,
 } 
-const SwAttendanceCounter = ({user, department} : SwAttendance) => {
+const SwAttendanceCounter = ({department} : SwAttendance) => {
     const today = dayjs().locale('it')
 
     const totalDepEmployees = department?.employees?.length ?? 0
@@ -101,7 +98,7 @@ const SwVisualizer = ({user, department} : SwVisualizerProps) => {
                     <Typography sx={{ display: "flex", justifyContent: "center"}} component="h1" variant="h5" color="secondary">{user?.department?.name}</Typography>
                     <Box sx={{ display: "flex", justifyContent: "center" }}><Divider sx={{ marginTop: '1em', marginBottom: '1em', width: "85%" }}></Divider></Box>
                     <Stack direction="row" spacing={-1} sx={{ display: "flex", justifyContent: "flex-end" }}>
-                        <Button color="info"><Typography variant="caption">{department?.employees?.map((u, i) => getAbbrvName(u) + ', ').slice(0, 2)}{`+${(department?.employees?.length?? 0) - 2} altri`}</Typography></Button>
+                        <Button color="info"><Typography variant="caption">{department?.employees?.map((u) => getAbbrvName(u) + ', ').slice(0, 2)}{`+${(department?.employees?.length?? 0) - 2} altri`}</Typography></Button>
                     </Stack>
                     <Stack direction="row" sx={{ display: "flex", alignItems: "center", justifyContent: "space-evenly" }}>
                         <SwText user={user}/>

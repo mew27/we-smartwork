@@ -1,24 +1,20 @@
 //Global Styles
 import "./App.css"
 
-import { Button, Dialog, DialogContent, DialogContentText, DialogTitle, FormControl, Input, InputLabel, Stack, TextField, Typography } from '@mui/material';
+import {Stack} from '@mui/material';
 
 import DateLocale from './DateLocale';
 import WeSmartMenu from './WeSmartMenu';
 
 // import swData from './assets/testdata'
 import MbdaTheme from './MbdaTheme';
-import InfoBox from './InfoBox';
 import SwVisualizer from './SwVisualizer';
 import SwPicker from './SwPicker';
-import CandaLogo from './CandaLogo'
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Search from './Search';
 
 import { Department, Employee } from '../interface/db_schema'
-import { UserContext } from "./AppContext";
 import Login from "./Login";
-import dayjs from "dayjs";
 
 
 async function login(userName : string, password : string) {

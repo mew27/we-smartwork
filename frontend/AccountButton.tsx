@@ -1,9 +1,5 @@
 import { Avatar, Button, IconButton, Typography } from '@mui/material';
 import StyledButtonProps from './StyledButtonProps';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-
-import { UserContext } from './AppContext';
-import { useContext } from 'react';
 
 interface AccountButtonProps extends StyledButtonProps {
     src : string,
