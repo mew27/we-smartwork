@@ -50,10 +50,13 @@ export function App() {
   const [department, setDepartment] = useState<Department | null>(null)
 
   useEffect(() => {
+    console.log("i'm use effeccting!")
     fetch("/v1/departments/" + user?.department?._id).then((res) => res.json()).then((data : Department) => {
         setDepartment(data)
     })
   }, [user])
+
+  console.log(user)
 
   return (
     <>
@@ -74,9 +77,9 @@ export function App() {
                 <SwVisualizer user={user} department={department}></SwVisualizer>
                 <SwPicker 
                   addSW={(sw_days) => {
-                    user.smart_working.current = sw_days.map((v) => v.format("D-M-YYYY"))
-                    addSW(user).then((res) => {
-                      if (res?.status == "success") {
+                    let userData = {...user, smart_working : {current : sw_days.map((v) => v.format("D-M-YYYY"))}}
+                    addSW(userData).then((res) => {
+                      if (res?.status === "success") {
                         getUserData(user._id).then((res)=>{setUser(res)})
                       }
                     })

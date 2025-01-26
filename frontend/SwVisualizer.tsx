@@ -101,7 +101,7 @@ const SwVisualizer = ({user, department} : SwVisualizerProps) => {
                     <Typography sx={{ display: "flex", justifyContent: "center"}} component="h1" variant="h5" color="secondary">{user?.department?.name}</Typography>
                     <Box sx={{ display: "flex", justifyContent: "center" }}><Divider sx={{ marginTop: '1em', marginBottom: '1em', width: "85%" }}></Divider></Box>
                     <Stack direction="row" spacing={-1} sx={{ display: "flex", justifyContent: "flex-end" }}>
-                        <Button color="info"><Typography variant="caption">{department?.employees?.map((u, i) => getAbbrvName(u) + ', ')}{`+1 altro`}</Typography></Button>
+                        <Button color="info"><Typography variant="caption">{department?.employees?.map((u, i) => getAbbrvName(u) + ', ').slice(0, 2)}{`+${(department?.employees?.length?? 0) - 2} altri`}</Typography></Button>
                     </Stack>
                     <Stack direction="row" sx={{ display: "flex", alignItems: "center", justifyContent: "space-evenly" }}>
                         <SwText user={user}/>
