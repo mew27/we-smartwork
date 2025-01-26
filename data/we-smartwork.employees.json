@@ -15,9 +15,13 @@
       "8-1-2025",
       "10-1-2025",
       "27-1-2025",
-      "39-1-2025"
+      "39-1-2025",
+      "12-2-2025",
+      "20-2-2025"
     ]
-  }
+  },
+  "email": "gavino.lace@mbda.it",
+  "password": "Password5"
 },
 {
   "_id": {
@@ -65,9 +69,13 @@
       "20-1-2025",
       "22-1-2025",
       "28-1-2025",
-      "31-1-2025"
+      "31-1-2025",
+      "6-2-2025",
+      "5-2-2025"
     ]
-  }
+  },
+  "email": "nicola.devita@mbda.it",
+  "password": "Password4"
 },
 {
   "_id": {
@@ -98,8 +106,13 @@
     "name": "CandA"
   },
   "smart_working": {
-    "current": []
-  }
+    "current": [
+      "6-2-2025",
+      "5-2-2025"
+    ]
+  },
+  "email": "alessandro.sorrentino@mbda.it",
+  "password": "Password3"
 },
 {
   "_id": {
@@ -114,8 +127,13 @@
     "name": "CandA"
   },
   "smart_working": {
-    "current": []
-  }
+    "current": [
+      "5-2-2025",
+      "6-2-2025"
+    ]
+  },
+  "email": "luigi.ragozzini@mbda.it",
+  "password": "Password2"
 },
 {
   "_id": {
